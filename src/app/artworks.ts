@@ -4,4 +4,5 @@ export interface Artwork {
   artist: string;
   description: string;
   date: Date;
+  imageLoc: string;
 }

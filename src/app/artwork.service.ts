@@ -13,24 +13,35 @@ export class ArtworkService {
     const artworks: Artwork[] = [
       {
         id: 1001,
-        name: 'Screaming',
-        artist: 'Dave',
+        name: '8 Limestones',
+        artist: 'Ulrich Rückriem',
         date: new Date(),
-        description: 'This is a crazy painting'
+        description: 'This is a crazy painting',
+        imageLoc: './assets/img/img1.jpg'
       },
       {
         id: 1002,
-        name: 'Sleeping',
-        artist: 'Bob',
+        name: '217 5° Arc x 12',
+        artist: 'Benar Venet',
         date: new Date(),
-        description: 'This is a calm painting'
+        description: 'This is a calm painting',
+        imageLoc: './assets/img/img2.jpg'
       },
       {
         id: 1003,
-        name: 'Running',
-        artist: 'Peter',
+        name: 'Barrel',
+        artist: 'Fergus Martin',
         date: new Date(),
-        description: 'This is a fast, action-packed painting'
+        description: 'This is a fast, action-packed painting',
+        imageLoc: './assets/img/img3.jpg'
+      },
+      {
+        id: 1003,
+        name: 'The Drummer',
+        artist: 'Barry Flanagan',
+        date: new Date(),
+        description: 'This is a fast, action-packed painting',
+        imageLoc: './assets/img/img4.jpg'
       }
     ];
     return artworks;

@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArtworksComponent } from './artworks/artworks.component';
 import { FormsModule } from '@angular/forms';
+import { ArtworkDetailComponent } from './artwork-detail/artwork-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArtworksComponent
+    ArtworksComponent,
+    ArtworkDetailComponent
   ],
   imports: [
     BrowserModule,

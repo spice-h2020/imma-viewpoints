@@ -1,9 +1,18 @@
 <div class="row px-5">
   <div class="col">
     <div *ngFor="let artwork of artworks">
-      {{artwork.name}} - {{artwork.description}}<br />
-      {{artwork.artist}}<br />
-      {{artwork.date.getFullYear()}}
+
+    </div>
+    <div *ngFor="let artwork of artworks" class="card my-3 shadow-sm rounded" style="width: 18rem;">
+      <img src="{{artwork.imageLoc}}" class="card-img-top" alt="{{artwork.name}}">
+      <div class="card-body">
+        <h5  class="card-title fst-italic">{{artwork.name}}</h5>
+        <p>
+          <span class="fw-bold">{{artwork.artist}}</span><br />
+          <span>{{artwork.date.getFullYear()}}</span>
+        </p>
+
+      </div>
     </div>
   </div>
 </div>
