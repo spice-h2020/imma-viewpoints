@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Artwork } from '../artworks';
+import { ArtworkService } from '../artwork.service';
 
 @Component({
   selector: 'app-artworks',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artworks.component.css']
 })
 export class ArtworksComponent implements OnInit {
+  artworks: Artwork[] = [];
 
-  constructor() { }
+  constructor(private artworksService: ArtworkService) { }
 
   ngOnInit(): void {
+    this.getArtworks();
+  }
+
+  getArtworks(): void {
+    this.artworks = this.artworksService.getArtworks();
   }
 
 }

@@ -1,1 +1,9 @@
-<p>artworks works!</p>
+<div class="row px-5">
+  <div class="col">
+    <div *ngFor="let artwork of artworks">
+      {{artwork.name}} - {{artwork.description}}<br />
+      {{artwork.artist}}<br />
+      {{artwork.date.getFullYear()}}
+    </div>
+  </div>
+</div>
