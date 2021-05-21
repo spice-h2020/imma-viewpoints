@@ -9,7 +9,8 @@
         <h5  class="card-title fst-italic">{{artwork.name}}</h5>
         <p>
           <span class="fw-bold">{{artwork.artist}}</span><br />
-          <span>{{artwork.date.getFullYear()}}</span>
+          <span>{{artwork.date.getFullYear()}}</span><br />
+          <span><a routerLink="/artwork/{{artwork.id}}">View</a></span>
         </p>
 
       </div>

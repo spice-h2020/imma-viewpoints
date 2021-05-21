@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { ArtworksComponent } from './artworks/artworks.component';
 import { FormsModule } from '@angular/forms';
 import { ArtworkDetailComponent } from './artwork-detail/artwork-detail.component';
+import { ArtworkSingleComponent } from './artwork-single/artwork-single.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArtworksComponent,
-    ArtworkDetailComponent
+    ArtworkDetailComponent,
+    ArtworkSingleComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

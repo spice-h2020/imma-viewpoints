@@ -9,7 +9,7 @@ export class ArtworkService {
 
   constructor() { }
 
-  private static generateDummyArtworks(): Artwork[] {
+  private generateDummyArtworks(): Artwork[] {
     const artworks: Artwork[] = [
       {
         id: 1001,
@@ -36,7 +36,7 @@ export class ArtworkService {
         imageLoc: './assets/img/img3.jpg'
       },
       {
-        id: 1003,
+        id: 1004,
         name: 'The Drummer',
         artist: 'Barry Flanagan',
         date: new Date(),
@@ -49,6 +49,17 @@ export class ArtworkService {
   }
 
   getArtworks(): Artwork[] {
-    return ArtworkService.generateDummyArtworks();
+    return this.generateDummyArtworks();
+  }
+
+  getArtwork(id: number): Artwork {
+    const artworksArray: Artwork[] = this.generateDummyArtworks();
+    let artworkFound: Artwork = null;
+    artworksArray.forEach( (element) => {
+      if (element.id === id) {
+        artworkFound = element;
+      }
+    });
+    return artworkFound;
   }
 }
