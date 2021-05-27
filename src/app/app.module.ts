@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { ArtworkDetailComponent } from './artwork-detail/artwork-detail.component';
 import { ArtworkSingleComponent } from './artwork-single/artwork-single.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { QuestionComponent } from './question/question.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { HomepageComponent } from './homepage/homepage.component';
     ArtworksComponent,
     ArtworkDetailComponent,
     ArtworkSingleComponent,
-    HomepageComponent
+    HomepageComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

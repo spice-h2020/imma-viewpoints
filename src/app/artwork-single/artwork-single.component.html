@@ -1,6 +1,10 @@
-<div class="px-5 pt-3 mt-5 rounded">
+<div class="px-4 pt-3 mt-5 rounded">
   <h2>{{artwork.name}}</h2>
 </div>
 <app-artwork-detail [artwork]="artwork"></app-artwork-detail>
+<app-question></app-question>
 
-<button (click)="goBack()" type="button" class="btn btn-primary">go back</button>
+<div class="px-4">
+  <button (click)="goBack()" type="button-sm" class="btn btn-primary">go back</button>
+</div>
+
