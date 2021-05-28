@@ -13,13 +13,7 @@ export class ResponseService {
     const x = 4;
   }
 
-  getResponse(id: number): Response {
-    const response: Response = {
-      questionID: 1001,
-      artworkID: 1001,
-      response: 'This is a response',
-      datetimeSubmitted: new Date()
-    };
-    return response;
+  getResponse(id: number): void {
+    // nothing here yet
   }
 }

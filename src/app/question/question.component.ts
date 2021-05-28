@@ -21,6 +21,7 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuestion();
+    this.initialiseResponse();
   }
 
   initialiseResponse(): void {
