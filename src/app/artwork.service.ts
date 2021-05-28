@@ -16,7 +16,7 @@ export class ArtworkService {
         name: '8 Limestones',
         artist: 'Ulrich Rückriem',
         date: new Date(),
-        description: 'This is a crazy painting',
+        description: 'Artwork description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         imageLoc: './assets/img/img1.jpg'
       },
       {
@@ -24,7 +24,7 @@ export class ArtworkService {
         name: '217 5° Arc x 12',
         artist: 'Benar Venet',
         date: new Date(),
-        description: 'This is a calm painting',
+        description: 'Artwork description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         imageLoc: './assets/img/img2.jpg'
       },
       {
@@ -32,7 +32,7 @@ export class ArtworkService {
         name: 'Barrel',
         artist: 'Fergus Martin',
         date: new Date(),
-        description: 'This is a fast, action-packed painting',
+        description: 'Artwork description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         imageLoc: './assets/img/img3.jpg'
       },
       {
@@ -40,7 +40,7 @@ export class ArtworkService {
         name: 'The Drummer',
         artist: 'Barry Flanagan',
         date: new Date(),
-        description: 'This is a fast, action-packed painting',
+        description: 'Artwork description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         imageLoc: './assets/img/img4.jpg'
       }
     ];

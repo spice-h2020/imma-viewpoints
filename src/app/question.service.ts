@@ -14,19 +14,19 @@ export class QuestionService {
     const questions: Question[] = [
       {
         id: 1001,
-        question: 'How does this artwork make you feel?'
+        question: 'What would your best friend think about this artwork?'
       },
       {
         id: 1002,
-        question: 'Does this artwork remind you of anything?'
+        question: 'What would people from 100 years in the future think about this artwork?'
       },
       {
         id: 1003,
-        question: 'How do you think a child might react to this artwork?'
+        question: 'Does this artwork move you? If so, what emotions do you feel?'
       },
       {
         id: 1004,
-        question: 'How do you feel this artwork might have been perceived 20 years ago?'
+        question: 'What colours can you see in the artwork?'
       },
       {
         id: 1005,
@@ -34,11 +34,23 @@ export class QuestionService {
       },
       {
         id: 1006,
-        question: 'How does this artwork sit alongside teh bushes and trees nearby?'
+        question: 'How does this artwork sit alongside the bushes and trees nearby?'
       },
       {
         id: 1007,
         question: 'If you could run your hand along the surface of the work, what texture and temperature do you imagine feeling?'
+      },
+      {
+        id: 1008,
+        question: 'What would your younger or older self think about this artwork?'
+      },
+      {
+        id: 1009,
+        question: 'Take a look at how the light hits the sculpture. What do you notice?'
+      },
+      {
+        id: 10010,
+        question: 'Does this artwork remind you of anything?'
       }
     ];
     return questions;
