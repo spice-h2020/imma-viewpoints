@@ -11,6 +11,7 @@ export class ResponseService {
 
   saveResponse(response: Response): void {
     const x = 4;
+    alert ('Thank you, your response has been saved');
   }
 
   getResponse(id: number): void {

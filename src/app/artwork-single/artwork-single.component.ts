@@ -24,8 +24,9 @@ export class ArtworkSingleComponent implements OnInit {
   }
 
   getArtwork(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.artwork = this.artworkService.getArtwork(id);
+    const id = this.route.snapshot.paramMap.get('id');
+    this.artworkService.getArtwork(id)
+      .subscribe(artwork => this.artwork = artwork[0]);
   }
 
   goBack(): void {

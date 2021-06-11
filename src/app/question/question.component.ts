@@ -4,6 +4,7 @@ import { Question } from '../question';
 import { Response } from '../response';
 import { Artwork } from '../artworks';
 import { QuestionService } from '../question.service';
+import { ResponseService } from '../response.service';
 
 @Component({
   selector: 'app-question',
@@ -16,7 +17,8 @@ export class QuestionComponent implements OnInit {
   response: Response;
 
   constructor(
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private responseService: ResponseService,
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,10 @@ export class QuestionComponent implements OnInit {
       response: '',
       datetimeSubmitted: new Date()
     };
+  }
+
+  saveResponse(): void {
+    this.responseService.saveResponse(this.response);
   }
 
   getQuestion(): void {

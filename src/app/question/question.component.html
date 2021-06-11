@@ -11,7 +11,7 @@
           <textarea class="form-control" id="response" [(ngModel)]="response.response" rows="3"></textarea>
         </div>
 
-        <button type="submit" class="btn-sm btn-primary">Submit</button>
+        <button (click)="saveResponse()" type="button" class="btn-sm btn-primary">Submit</button>
         <button (click)="getQuestion()" type="button" class="btn-sm btn-primary"><i class="fas fa-redo"></i> ︁Change question</button>
 
       </div>

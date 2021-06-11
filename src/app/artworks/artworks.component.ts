@@ -17,7 +17,8 @@ export class ArtworksComponent implements OnInit {
   }
 
   getArtworks(): void {
-    this.artworks = this.artworksService.getArtworks();
+    this.artworksService.getArtworks()
+      .subscribe(artworks => this.artworks = artworks);
   }
 
 }
