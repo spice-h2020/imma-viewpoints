@@ -1,6 +1,6 @@
 export interface Response {
-  questionID: number;
-  artworkID: number;
+  questionID: string;
+  artworkID: string;
   questionAsked: string;
   response: string;
   datetimeSubmitted: Date;

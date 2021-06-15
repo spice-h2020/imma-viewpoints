@@ -5,6 +5,7 @@ import { Response } from '../response';
 import { Artwork } from '../artworks';
 import { QuestionService } from '../question.service';
 import { ResponseService } from '../response.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-question',
@@ -14,34 +15,59 @@ import { ResponseService } from '../response.service';
 export class QuestionComponent implements OnInit {
   @Input() artwork?: Artwork;
   question: Question;
+  questions: Question[];
   response: Response;
 
   constructor(
     private questionService: QuestionService,
     private responseService: ResponseService,
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
-    this.getQuestion();
-    this.initialiseResponse();
+    this.getAllQuestions();
   }
 
   initialiseResponse(): void {
     this.response = {
-      questionID: this.question.id,
-      questionAsked: this.question.question,
-      artworkID: this.artwork.id,
+      questionID: '',
+      questionAsked: '',
+      artworkID: '',
       response: '',
       datetimeSubmitted: new Date()
     };
   }
 
   saveResponse(): void {
-    this.responseService.saveResponse(this.response);
+    this.response.questionID = this.question._id;
+    this.response.questionAsked = this.question.question;
+    this.response.artworkID = this.artwork.id;
+    this.response.datetimeSubmitted = new Date();
+    this.responseService.saveResponse(this.response)
+      .subscribe(() => {
+        alert('Thank you! Your response has been submitted');
+        this.initialiseResponse();
+      });
   }
 
   getQuestion(): void {
-    this.question = this.questionService.getRandomQuestion();
+    // this.question = this.questionService.getRandomQuestion();
+    const randomID = Math.floor(Math.random() * this.questions.length);
+    this.question = this.questions[randomID];
+  }
+
+  getAllQuestions(): void {
+    this.questionService.getQuestions()
+      .subscribe(
+        questions => {
+          this.questions = questions;
+          this.getQuestion();
+          this.initialiseResponse();
+        }
+
+
+        );
   }
 
 }
