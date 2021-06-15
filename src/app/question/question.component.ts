@@ -49,7 +49,7 @@ export class QuestionComponent implements OnInit {
     // console.log(this.artwork);
     this.responseService.saveResponse(this.response)
       .subscribe(() => {
-        //alert('Thank you! Your response has been submitted');
+        // alert('Thank you! Your response has been submitted');
         this.initialiseResponse();
         this.responseSubmitted = true;
       });

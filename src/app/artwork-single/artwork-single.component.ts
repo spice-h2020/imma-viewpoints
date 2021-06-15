@@ -12,6 +12,7 @@ import { ArtworkService } from '../artwork.service';
 })
 export class ArtworkSingleComponent implements OnInit {
   artwork: Artwork;
+  artworkLoaded: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,13 +21,17 @@ export class ArtworkSingleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.artworkLoaded = false;
     this.getArtwork();
   }
 
   getArtwork(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.artworkService.getArtwork(id)
-      .subscribe(artwork => this.artwork = artwork[0]);
+      .subscribe(artwork => {
+        this.artwork = artwork[0];
+        this.artworkLoaded = true;
+      });
   }
 
   goBack(): void {
