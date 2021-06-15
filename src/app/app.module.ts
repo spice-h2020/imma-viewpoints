@@ -11,6 +11,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { QuestionComponent } from './question/question.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     ArtworkDetailComponent,
     ArtworkSingleComponent,
     HomepageComponent,
-    QuestionComponent
+    QuestionComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
