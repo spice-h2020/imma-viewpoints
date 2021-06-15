@@ -1,5 +1,5 @@
 export interface Artwork {
-  id: string;
+  _id: string;
   name: string;
   artist: string;
   description: string;

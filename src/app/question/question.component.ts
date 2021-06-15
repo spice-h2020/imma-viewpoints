@@ -17,6 +17,7 @@ export class QuestionComponent implements OnInit {
   question: Question;
   questions: Question[];
   response: Response;
+  responseSubmitted: boolean;
 
   constructor(
     private questionService: QuestionService,
@@ -42,12 +43,15 @@ export class QuestionComponent implements OnInit {
   saveResponse(): void {
     this.response.questionID = this.question._id;
     this.response.questionAsked = this.question.question;
-    this.response.artworkID = this.artwork.id;
+    this.response.artworkID = this.artwork._id;
     this.response.datetimeSubmitted = new Date();
+    // console.log(this.response);
+    // console.log(this.artwork);
     this.responseService.saveResponse(this.response)
       .subscribe(() => {
-        alert('Thank you! Your response has been submitted');
+        //alert('Thank you! Your response has been submitted');
         this.initialiseResponse();
+        this.responseSubmitted = true;
       });
   }
 
@@ -55,6 +59,8 @@ export class QuestionComponent implements OnInit {
     // this.question = this.questionService.getRandomQuestion();
     const randomID = Math.floor(Math.random() * this.questions.length);
     this.question = this.questions[randomID];
+    this.initialiseResponse();
+    this.responseSubmitted = false;
   }
 
   getAllQuestions(): void {
@@ -64,6 +70,7 @@ export class QuestionComponent implements OnInit {
           this.questions = questions;
           this.getQuestion();
           this.initialiseResponse();
+          this.responseSubmitted = false;
         }
 
 

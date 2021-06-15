@@ -16,7 +16,7 @@ export class ArtworkService {
   private generateDummyArtworks(): Artwork[] {
     const artworks: Artwork[] = [
       {
-        id: '1001',
+        _id: '1001',
         name: '8 Limestones',
         artist: 'Ulrich Rückriem',
         date: new Date(),
@@ -24,7 +24,7 @@ export class ArtworkService {
         imageLoc: './assets/img/img1.jpg'
       },
       {
-        id: '1002',
+        _id: '1002',
         name: '217 5° Arc x 12',
         artist: 'Benar Venet',
         date: new Date(),
@@ -32,7 +32,7 @@ export class ArtworkService {
         imageLoc: './assets/img/img2.jpg'
       },
       {
-        id: '1003',
+        _id: '1003',
         name: 'Barrel',
         artist: 'Fergus Martin',
         date: new Date(),
@@ -40,7 +40,7 @@ export class ArtworkService {
         imageLoc: './assets/img/img3.jpg'
       },
       {
-        id: '1004',
+        _id: '1004',
         name: 'The Drummer',
         artist: 'Barry Flanagan',
         date: new Date(),

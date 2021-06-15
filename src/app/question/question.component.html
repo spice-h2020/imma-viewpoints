@@ -3,16 +3,28 @@
     <div  class="card my-3 shadow-sm rounded" style="width: 18rem;">
       <div class="card-body">
         <h5  class="card-title fst-italic">Question</h5>
-        <p>{{question.question}}</p>
-
-
+        <div class="d-grid gap-2">
+          <button (click)="getQuestion()" type="button" class="btn-sm btn-primary"><i class="fas fa-redo"></i> ︁Change question</button>
+        </div>
+        <p>
+          {{question.question}}
+        </p>
         <div class="mb-3">
-          <label for="response" class="form-label">Your answer</label>
-          <textarea class="form-control" id="response" [(ngModel)]="response.response" rows="3"></textarea>
+          <div class="alert alert-success fade"
+               role="alert"
+               [class.show]="responseSubmitted"
+               [class.collapse]="!responseSubmitted">
+            Thanks very much, your response has been passed to our team for approval.
+          </div>
+          <div [class.d-none]="responseSubmitted">
+            <label for="response" class="form-label">Your answer</label>
+            <textarea class="form-control" id="response" [(ngModel)]="response.response" rows="3"></textarea>
+          </div>
         </div>
 
-        <button (click)="saveResponse()" type="button" class="btn-sm btn-primary">Submit</button>
-        <button (click)="getQuestion()" type="button" class="btn-sm btn-primary"><i class="fas fa-redo"></i> ︁Change question</button>
+        <div class="d-grid gap-2" [class.d-none]="responseSubmitted">
+          <button (click)="saveResponse()" type="button" class="btn-sm btn-primary">Submit your answer</button> &nbsp;
+        </div>
 
       </div>
     </div>
