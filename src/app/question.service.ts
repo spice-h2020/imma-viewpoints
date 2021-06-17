@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 })
 export class QuestionService {
 
-  private apiUrl = 'http://covid.local/imma_api/test.php';
+  private apiUrl = 'http://covid.local/imma_api/main.php';
 
   constructor(private http: HttpClient) { }
 
