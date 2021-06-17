@@ -1,20 +1,24 @@
-import { Injectable } from '@angular/core';
+import {Injectable, NgModule} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Artwork } from './artworks';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
+import { Config } from './config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArtworkService {
 
-  private apiUrl = 'http://covid.local/imma_api/main.php';
+  private apiUrl = 'https://spice.kmi.open.ac.uk/demos/imma_api/main.php';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getArtworks(): Observable<Artwork[]> {
     const artworksPath = '?action=artworklist';
+    // console.log('from config: ' + this.config.apiURL);
     return this.http.get<Artwork[]>(this.apiUrl + artworksPath);
   }
 

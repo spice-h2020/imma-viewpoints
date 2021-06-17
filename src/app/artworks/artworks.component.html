@@ -11,7 +11,7 @@
     </div>
     <div class="row">
       <div *ngFor="let artwork of artworks" class="col-md-4 card my-3 shadow-sm rounded">
-        <a routerLink="/artwork/{{artwork._id}}"><img src="{{'http://covid.local/imma_api/test.php?action=artworkimage&filename=' + artwork.image}}" class="card-img-top" alt="{{artwork.name}}"></a>
+        <a routerLink="/artwork/{{artwork._id}}"><img src="{{'https://spice.kmi.open.ac.uk/demos/imma_api/main.php?action=artworkimage&filename=' + artwork.image}}" class="card-img-top" alt="{{artwork.name}}"></a>
         <div class="card-body">
           <h5  class="card-title fst-italic">{{artwork.name}}</h5>
           <p>

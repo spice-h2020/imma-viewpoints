@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ResponseService {
 
-  private apiUrl = 'http://covid.local/imma_api/response.php';
+  private apiUrl = 'https://spice.kmi.open.ac.uk/demos/imma_api/response.php';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
