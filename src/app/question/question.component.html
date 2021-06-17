@@ -4,7 +4,7 @@
       <div class="card-body">
         <h5  class="card-title fst-italic">Question</h5>
         <div class="d-grid gap-2">
-          <button (click)="getQuestion()" type="button" class="btn-sm btn-primary"><i class="fas fa-redo"></i> ︁Change question</button>
+          <button (click)="getQuestion()" type="button" class="btn btn-primary"><i class="fas fa-redo"></i> ︁Change question</button>
         </div>
         <p>
           {{question.question}}
@@ -23,7 +23,7 @@
         </div>
 
         <div class="d-grid gap-2" [class.d-none]="responseSubmitted">
-          <button (click)="saveResponse()" type="button" class="btn-sm btn-primary">Submit your answer</button> &nbsp;
+          <button (click)="saveResponse()" type="button" class="btn btn-primary">Submit your answer</button> &nbsp;
         </div>
 
       </div>
