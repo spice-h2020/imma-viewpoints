@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Response } from '../response';
+import { Artwork } from '../artworks';
 import { ResponseService } from '../response.service';
+import { ArtworkService } from '../artwork.service';
 
 @Component({
   selector: 'app-results',
@@ -11,29 +13,74 @@ import { ResponseService } from '../response.service';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  allResponses: Response[] = [];
+  artworks: Artwork[] = [];
+  allResponses = [];
   randomResponses: Response[] = [];
   artworkResponsesObj: {} = {};
   artworkResponsesArr = [];
   responsesLoaded = false;
   randomCommentCount = 5;
+  recentArtworkCount = 3;
+  artworkMaxResponses = 0;
+  artworksLoaded = false;
 
   constructor(private route: ActivatedRoute,
               private location: Location,
-              private responseService: ResponseService) { }
+              private responseService: ResponseService,
+              private artworksService: ArtworkService) { }
 
   ngOnInit(): void {
     this.responsesLoaded = false;
-    this.getResponses();
+    this.artworksLoaded = false;
+    this.getArtworks();
+  }
+
+  getArtworks(): void {
+    this.artworksService.getArtworks()
+      .subscribe(artworks => {
+        this.artworks = artworks;
+        this.artworksLoaded = true;
+        this.getResponses();
+      });
+  }
+
+  getArtworkTitle(id: string): string {
+    let title = '';
+    for (let i = 0; i < this.artworks.length; i++) {
+      if (this.artworks[i]._id === id) {
+        title = this.artworks[i].name;
+      }
+    }
+    return title;
+  }
+
+  getArtworkImage(id: string): string {
+    let image = '';
+    for (let i = 0; i < this.artworks.length; i++) {
+      if (this.artworks[i]._id === id) {
+        image = this.artworks[i].image;
+      }
+    }
+    return image;
+  }
+
+  addTitlesAndImages(): void {
+    for (let i = 0; i < this.allResponses.length; i++) {
+      this.allResponses[i].artworkName = this.getArtworkTitle(this.allResponses[i].artworkID);
+      this.allResponses[i].artworkImage = this.getArtworkImage(this.allResponses[i].artworkID);
+    }
   }
 
   getResponses(): void {
     this.responseService.getApprovedResponses()
       .subscribe( responses => {
         this.allResponses = responses;
+        this.allResponses.sort((a, b) => (b.datetimeSubmitted - a.datetimeSubmitted));
+        this.addTitlesAndImages();
         this.generateRandomResponseList();
         this.generateArtworkResponseList();
         this.responsesLoaded = true;
+        // console.log(this.artworkResponsesObj);
       });
   }
 
@@ -69,6 +116,9 @@ export class ResultsComponent implements OnInit {
     }
     for (let item in this.artworkResponsesObj) {
       this.artworkResponsesArr.push(this.artworkResponsesObj[item]);
+      if (this.artworkResponsesObj[item].length > this.artworkMaxResponses) {
+        this.artworkMaxResponses = this.artworkResponsesObj[item].length;
+      }
     }
     this.artworkResponsesArr.sort(function (a, b) {
       return b.length - a.length;
