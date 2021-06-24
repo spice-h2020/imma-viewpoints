@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class ResponseService {
 
-  // private submissionUrl = 'https://spice.kmi.open.ac.uk/demos/imma_api/response.php';
-  // private apiUrl = 'https://spice.kmi.open.ac.uk/demos/imma_api/main.php';
-  private submissionUrl = 'http://covid.local/imma_api/response.php';
-  private apiUrl = 'http://covid.local/imma_api/main.php';
+  private submissionUrl = 'https://spice.kmi.open.ac.uk/demos/imma_api/response.php';
+  private apiUrl = 'https://spice.kmi.open.ac.uk/demos/imma_api/main.php';
+  // private submissionUrl = 'http://covid.local/imma_api/response.php';
+  // private apiUrl = 'http://covid.local/imma_api/main.php';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
