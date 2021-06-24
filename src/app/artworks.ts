@@ -6,4 +6,5 @@ export interface Artwork {
   date: Date;
   imageLoc: string;
   image: string;
+  audio: string;
 }

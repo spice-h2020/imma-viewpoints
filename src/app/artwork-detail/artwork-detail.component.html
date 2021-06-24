@@ -10,6 +10,10 @@
           <span class="fw-bold">{{artwork.artist}}</span><br />
           <span>{{artwork.date}}</span>
         </p>
+        <audio controls style="width: 100%">
+          <source src="assets/audio/{{artwork.audio}}" type="audio/mp4">
+          Your browser does not support audio.
+        </audio>
         <p [innerHTML]="artwork.description"></p>
 
       </div>

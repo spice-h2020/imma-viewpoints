@@ -12,3 +12,9 @@
     font-size: 3.5rem;
   }
 }
+
+.btn-primary {
+  color: #000;
+  background-color: #f8b12d;
+  border-color: #f8b12d;
+}

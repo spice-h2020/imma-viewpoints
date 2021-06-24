@@ -3,12 +3,13 @@
     <div  class="card my-3 shadow-sm rounded">
       <div class="card-body">
         <h5  class="card-title fst-italic">Question</h5>
-        <div class="d-grid gap-2">
-          <button (click)="getQuestion()" type="button" class="btn btn-primary"><i class="fas fa-redo"></i> ︁Change question</button>
-        </div>
+
         <p>
-          {{question.question}}
+          <strong>{{question.question}}</strong>
         </p>
+        <div class="d-grid gap-2">
+          <button (click)="getQuestion()" type="button" class="btn btn-primary btn-sm"><i class="fas fa-redo"></i> Another question</button>
+        </div>
         <div class="mb-3">
           <div class="alert alert-success fade"
                role="alert"
@@ -33,7 +34,7 @@
         </div>
 
         <div class="d-grid gap-2" [class.d-none]="responseSubmitted || responseSubmitting">
-          <button (click)="saveResponse()" type="button" class="btn btn-primary">Submit your answer</button> &nbsp;
+          <button (click)="saveResponse()" type="button" class="btn btn-primary">Submit your response</button> &nbsp;
         </div>
 
       </div>
