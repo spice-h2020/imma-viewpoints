@@ -20,7 +20,7 @@ export class ResultsComponent implements OnInit {
   artworkResponsesArr = [];
   responsesLoading = false;
   randomCommentCount = 5;
-  recentArtworkCount = 3;
+  recentArtworkCount = 10;
   artworkMaxResponses = 0;
   artworksLoading = false;
 
@@ -67,8 +67,19 @@ export class ResultsComponent implements OnInit {
 
   addTitlesAndImages(): void {
     for (let i = 0; i < this.allResponses.length; i++) {
-      this.allResponses[i].artworkName = this.getArtworkTitle(this.allResponses[i].artworkID);
-      this.allResponses[i].artworkImage = this.getArtworkImage(this.allResponses[i].artworkID);
+
+      let name = '';
+      let image = '';
+      let artist = '';
+      let date = '';
+      for (let j = 0; j < this.artworks.length; j++) {
+        if (this.artworks[j]._id === this.allResponses[i].artworkID) {
+          this.allResponses[i].artworkName = this.artworks[j].name;
+          this.allResponses[i].artworkImage = this.artworks[j].image;
+          this.allResponses[i].artworkArtist = this.artworks[j].artist;
+          this.allResponses[i].artworkDate = this.artworks[j].date;
+        }
+      }
     }
   }
 

@@ -23,9 +23,11 @@
     </div>
   </div>
 
+  <!--
   <p>
     <strong>Total approved responses so far: </strong>{{allResponses.length}}
   </p>
+  -->
 
 </div>
 
@@ -88,7 +90,11 @@
                           [attr.data-bs-target]="'#collapse_' + artwork[0].artworkID"
                           aria-expanded="false"
                           [attr.aria-controls]="'collapse_'+ artwork[0].artworkID">
-                    <em>{{artwork[0].artworkName}}<br />({{artwork.length}} responses)</em>
+                    <em>{{artwork[0].artworkName}}
+                      <!--
+                      <br />({{artwork.length}} responses)
+                      -->
+                    </em>
                   </button>
                 </h2>
                 <div id="{{'collapse_' + artwork[0].artworkID}}"
@@ -96,19 +102,28 @@
                      [attr.aria-labelledby]="'heading_' + artwork[0].artworkID"
                      data-bs-parent="#artworkAccordion">
                   <div class="accordion-body">
-                    <div class="col py-1">
-                      <div class="progress">
-                        <div class="progress-bar bg-success"
-                             role="progressbar"
-                             [attr.aria-valuenow]="artwork.length"
-                             [attr.aria-valuemin]="0"
-                             [attr.aria-valuemax]="artworkMaxResponses + (artworkMaxResponses * 0.1)"
-                             style="width: {{artwork.length / (artworkMaxResponses * 1.1) * 100}}%">
-                          {{artwork.length}}
+                    <div class="row py-1">
+                      <div class="col-3 text-nowrap align-middle"><small>Responses </small></div>
+                      <div class="col-9">
+                        <div class="progress">
+                          <div class="progress-bar bg-success"
+                               role="progressbar"
+                               [attr.aria-valuenow]="artwork.length"
+                               [attr.aria-valuemin]="0"
+                               [attr.aria-valuemax]="artworkMaxResponses + (artworkMaxResponses * 0.1)"
+                               style="width: {{artwork.length / (artworkMaxResponses * 1.1) * 100}}%">
+                            <!-- {{artwork.length}} -->
+                          </div>
                         </div>
                       </div>
                     </div>
                     <img src="{{'https://spice.kmi.open.ac.uk/demos/imma_api/main.php?action=artworkimage&filename=' + artwork[0].artworkImage}}" class="img-fluid">
+                    <p>
+                      <small>
+                        <span class="fw-bold">{{artwork[0].artworkArtist}}</span><br />
+                        <span>{{artwork[0].artworkDate}}</span>
+                      </small>
+                    </p>
                     <div *ngFor="let response of artwork; let j = index">
                       <div *ngIf="j < recentArtworkCount">
                         <p><strong>{{response.questionAsked}}</strong><br />{{response.response}}</p>
@@ -147,7 +162,7 @@
             <p><em>{{response.response}}</em></p>
           </div>
           <div class="d-grid gap-2">
-            <button (click)="generateRandomResponseList()" type="button" class="btn btn-primary"><i class="fas fa-redo"></i> ︁Reload another {{randomCommentCount}} responses</button>
+            <button (click)="generateRandomResponseList()" type="button" class="btn btn-sm btn-primary"><i class="fas fa-redo"></i> ︁Reload another {{randomCommentCount}} responses</button>
           </div>
 
         </div>
