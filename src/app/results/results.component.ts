@@ -18,11 +18,11 @@ export class ResultsComponent implements OnInit {
   randomResponses: Response[] = [];
   artworkResponsesObj: {} = {};
   artworkResponsesArr = [];
-  responsesLoaded = false;
+  responsesLoading = false;
   randomCommentCount = 5;
   recentArtworkCount = 3;
   artworkMaxResponses = 0;
-  artworksLoaded = false;
+  artworksLoading = false;
 
   constructor(private route: ActivatedRoute,
               private location: Location,
@@ -30,16 +30,17 @@ export class ResultsComponent implements OnInit {
               private artworksService: ArtworkService) { }
 
   ngOnInit(): void {
-    this.responsesLoaded = false;
-    this.artworksLoaded = false;
+    this.responsesLoading = false;
+    this.artworksLoading = false;
     this.getArtworks();
   }
 
   getArtworks(): void {
+    this.artworksLoading = true;
     this.artworksService.getArtworks()
       .subscribe(artworks => {
         this.artworks = artworks;
-        this.artworksLoaded = true;
+        this.artworksLoading = false;
         this.getResponses();
       });
   }
@@ -72,6 +73,7 @@ export class ResultsComponent implements OnInit {
   }
 
   getResponses(): void {
+    this.responsesLoading = true;
     this.responseService.getApprovedResponses()
       .subscribe( responses => {
         this.allResponses = responses;
@@ -79,7 +81,7 @@ export class ResultsComponent implements OnInit {
         this.addTitlesAndImages();
         this.generateRandomResponseList();
         this.generateArtworkResponseList();
-        this.responsesLoaded = true;
+        this.responsesLoading = false;
         // console.log(this.artworkResponsesObj);
       });
   }
