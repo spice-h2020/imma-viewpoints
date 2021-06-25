@@ -15,6 +15,10 @@
           Your browser does not support audio.
         </audio>
         <p [innerHTML]="artwork.description"></p>
+        <p>
+          <small><em>{{artwork.notes}}</em></small><br />
+          <a href="{{artwork.URL}}" target="_blank"> <small>{{artwork.URL}}</small></a>
+        </p>
 
       </div>
     </div>

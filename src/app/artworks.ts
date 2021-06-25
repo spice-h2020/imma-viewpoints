@@ -7,4 +7,6 @@ export interface Artwork {
   imageLoc: string;
   image: string;
   audio: string;
+  notes: string;
+  URL: string;
 }
