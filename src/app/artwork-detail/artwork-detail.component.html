@@ -17,11 +17,10 @@
         <p [innerHTML]="artwork.description"></p>
         <p>
           <small><em>{{artwork.notes}}</em></small><br />
-          <div *ngIf="artwork.URL">
+          <span *ngIf="artwork.URL">
             <a href="{{artwork.URL}}" target="_blank"> <small>Find this work in the IMMA Collection</small></a>
-          </div>
+          </span>
         </p>
-
       </div>
     </div>
   </div>
