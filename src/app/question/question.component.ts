@@ -19,6 +19,7 @@ export class QuestionComponent implements OnInit {
   response: Response;
   responseSubmitted: boolean;
   responseSubmitting: boolean = false;
+  userResponseID = '';
 
   constructor(
     private questionService: QuestionService,
@@ -28,6 +29,7 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUserResponseID();
     this.getAllQuestions();
   }
 
@@ -37,7 +39,8 @@ export class QuestionComponent implements OnInit {
       questionAsked: '',
       artworkID: '',
       response: '',
-      datetimeSubmitted: new Date()
+      datetimeSubmitted: new Date(),
+      userResponseID: ''
     };
   }
 
@@ -47,7 +50,8 @@ export class QuestionComponent implements OnInit {
     this.response.questionAsked = this.question.question;
     this.response.artworkID = this.artwork._id;
     this.response.datetimeSubmitted = new Date();
-    // console.log(this.response);
+    this.response.userResponseID = this.userResponseID;
+    console.log(this.response);
     // console.log(this.artwork);
     this.responseService.saveResponse(this.response)
       .subscribe(() => {
@@ -80,6 +84,16 @@ export class QuestionComponent implements OnInit {
 
 
         );
+  }
+
+  getUserResponseID(): void {
+    if (localStorage.userResponseID) {
+      this.userResponseID = localStorage.userResponseID;
+    }
+    else {
+      this.userResponseID = this.responseService.generateUserResponseID(32);
+      localStorage.userResponseID = this.userResponseID;
+    }
   }
 
 }

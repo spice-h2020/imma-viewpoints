@@ -1,0 +1,58 @@
+<div class="">
+  <div class="row align-middle">
+    <div class="col-md-10 align-middle text-center"><h1>Responses from the public collected from IMMA Viewpoints</h1></div>
+    <div class="col-md-2"><img class="img-fluid  " src="assets/img/IMMA30_LOGO_RGB_small.png" align="right"></div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let artwork of artworkResponsesArr" class="col-md-3 card">
+      <div class="card-body p-1 m-1">
+
+        <div class="row">
+
+          <div class="col-md-12 p-0"><h6  class="card-title fst-italic">{{artwork[0].artworkName}}</h6></div>
+          <div class="col-md-12 p-0">Responses
+            <div class="progress p-0">
+              <div class="progress-bar bg-success"
+                   role="progressbar"
+                   [attr.aria-valuenow]="artwork.length"
+                   [attr.aria-valuemin]="0"
+                   [attr.aria-valuemax]="artworkMaxResponses + (artworkMaxResponses * 0.1)"
+                   style="width: {{artwork.length / (artworkMaxResponses * 1.1) * 100}}%">
+                <!-- {{artwork.length}} -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 p-0 m-0">
+            <img src="{{'https://spice.kmi.open.ac.uk/demos/imma_api/main.php?action=artworkimage&filename=' + artwork[0].artworkImage}}"
+                 class="card-img-top pt-1 img-fluid" alt="{{artwork[0].artworkName}}">
+            <!-- <h6  class="card-title fst-italic">{{artwork[0].artworkName}}</h6> -->
+            <p>
+              <span class="fw-bold"><small>{{artwork[0].artworkArtist}}</small></span><br />
+              <span><small>{{artwork[0].artworkDate}}</small></span><br />
+            </p>
+          </div>
+
+          <div class="col-md-6 overflow-auto">
+            <div *ngFor="let response of artwork; let j = index">
+              <div *ngIf="j < recentArtworkCount">
+                <p><small><strong>{{response.questionAsked}}</strong><br />
+                  {{response.response.substr(0, substringLength)}}<span *ngIf="response.response.length > substringLength">...</span></small></p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-center pt-3">
+      <h4>What’s your view? Explore the responses and add your own at <a href="https://imma.ie/viewpoints" target="_blank">imma.ie/viewpoints</a></h4>
+    </div>
+  </div>
+</div>

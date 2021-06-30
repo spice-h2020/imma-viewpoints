@@ -93,7 +93,7 @@ export class ResultsComponent implements OnInit {
         this.generateRandomResponseList();
         this.generateArtworkResponseList();
         this.responsesLoading = false;
-        // console.log(this.artworkResponsesObj);
+        console.log(this.artworkResponsesObj);
       });
   }
 

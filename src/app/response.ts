@@ -4,4 +4,5 @@ export interface Response {
   questionAsked: string;
   response: string;
   datetimeSubmitted: Date;
+  userResponseID: string;
 }

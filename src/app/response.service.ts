@@ -14,10 +14,11 @@ export class ResponseService {
   // private submissionUrl = 'http://covid.local/imma_api/response.php';
   // private apiUrl = 'http://covid.local/imma_api/main.php';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   saveResponse(response: Response): Observable<any> {
     return this.http.post(this.submissionUrl, response, this.httpOptions);
@@ -32,4 +33,16 @@ export class ResponseService {
     const path = '/main.php' + filterParam;
     return this.http.get<Response[]>(this.apiUrl + path, this.httpOptions);
   }
+
+  generateUserResponseID(length): string {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() *
+        charactersLength));
+    }
+    return result;
+  }
+
 }

@@ -34,3 +34,11 @@
 a, a:hover, a:visited, a:active {
   color: #865600;
 }
+
+.hidenav {
+  display: flex;
+}
+
+.progress {
+  background-color: #d8c6a5;
+}

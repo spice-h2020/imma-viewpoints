@@ -12,6 +12,7 @@ import { QuestionComponent } from './question/question.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultsComponent } from './results/results.component';
+import { DisplayComponent } from './display/display.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ResultsComponent } from './results/results.component';
     ArtworkSingleComponent,
     HomepageComponent,
     QuestionComponent,
-    ResultsComponent
+    ResultsComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
