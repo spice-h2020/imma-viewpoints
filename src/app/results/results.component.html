@@ -90,7 +90,9 @@
                           [attr.data-bs-target]="'#collapse_' + artwork[0].artworkID"
                           aria-expanded="false"
                           [attr.aria-controls]="'collapse_'+ artwork[0].artworkID">
-                    <em>{{artwork[0].artworkName}}
+                    <em>
+                      <img src="{{'https://spice.kmi.open.ac.uk/demos/imma_api/main.php?action=artworkimage&filename=' + artwork[0].artworkImage}}" class="img-fluid">
+                      {{artwork[0].artworkName}}
                       <!--
                       <br />({{artwork.length}} responses)
                       -->
@@ -117,7 +119,7 @@
                         </div>
                       </div>
                     </div>
-                    <img src="{{'https://spice.kmi.open.ac.uk/demos/imma_api/main.php?action=artworkimage&filename=' + artwork[0].artworkImage}}" class="img-fluid">
+                    <!-- <img src="{{'https://spice.kmi.open.ac.uk/demos/imma_api/main.php?action=artworkimage&filename=' + artwork[0].artworkImage}}" class="img-fluid"> -->
                     <p>
                       <small>
                         <span class="fw-bold">{{artwork[0].artworkArtist}}</span><br />
